@@ -105,3 +105,40 @@ main {
 section {
   margin-bottom: 20px;
 }
+
+#members-list {
+  list-style: none;
+  display: inline-block;
+}
+
+#members-list > li {
+  margin-bottom: 10px;
+}
+
+.member-icon-name {
+  display: flex;
+  align-items: center;
+}
+
+.member-name {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 0 10px;
+}
+
+.member-server {
+  font-size: 0.8em;
+  text-align: left;
+  margin-left: 34px;
+}
+
+.member-icon {
+  width: 24px;
+  height: 24px;
+}
+
+#section-numbers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
