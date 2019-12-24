@@ -14,70 +14,70 @@ function checkUnique(arr) {
 
 let taskArray = [
   {
-    task: "conceptualize",
+    task: "Garuda prog",
     type: "Garuda",
-    startTime: "2013-1-28", //year/month/day
-    endTime: "2013-2-1",
-    details: "This actually didn't take any conceptualization"
+    startTime: "2019-11-07", //year/month/day
+    endTime: "2019-11-08"
   },
-
   {
-    task: "sketch",
-    type: "Garuda",
-    startTime: "2013-2-1",
-    endTime: "2013-2-6",
-    details: "No sketching either, really"
-  },
-
-  {
-    task: "color profiles",
-    type: "Garuda",
-    startTime: "2013-2-6",
-    endTime: "2013-2-9"
-  },
-
-  {
-    task: "HTML",
+    task: "Ifrit spawn",
     type: "Ifrit",
-    startTime: "2013-2-2",
-    endTime: "2013-2-6",
-    details: "all three lines of it"
+    startTime: "2019-11-08",
+    endTime: "2019-11-11"
   },
-
   {
-    task: "write the JS",
+    task: "Ifrit nails",
     type: "Ifrit",
-    startTime: "2013-2-6",
-    endTime: "2013-2-9"
+    startTime: "2019-11-11",
+    endTime: "2019-11-19"
   },
-
   {
-    task: "advertise",
+    task: "Ifrit clean-up",
     type: "Ifrit",
-    startTime: "2013-2-9",
-    endTime: "2013-2-12",
-    details: "This counts, right?"
+    startTime: "2019-11-19",
+    endTime: "2019-11-25"
   },
-
   {
-    task: "spam links",
+    task: "Titan spawn",
     type: "Titan",
-    startTime: "2013-2-12",
-    endTime: "2013-2-14"
+    startTime: "2019-11-19",
+    endTime: "2019-11-21"
   },
   {
-    task: "eat",
+    task: "Titan gaols",
+    type: "Titan",
+    startTime: "2019-11-25",
+    endTime: "2019-12-4"
+  },
+  {
+    task: "Titan clean-up",
+    type: "Titan",
+    startTime: "2019-12-2",
+    endTime: "2019-12-4"
+  },
+  {
+    task: "Predation prog",
     type: "Predation",
-    startTime: "2013-2-8",
-    endTime: "2013-2-13",
-    details: "All the things"
+    startTime: "2019-12-4",
+    endTime: "2019-12-10"
   },
-
   {
-    task: "crying",
-    type: "Anniliation",
-    startTime: "2013-2-13",
-    endTime: "2013-2-16"
+    task: "Annihilation prog",
+    type: "Annihilation",
+    startTime: "2019-12-4",
+    endTime: "2019-12-17"
+  },
+  {
+    task: "Suppression prog",
+    type: "Suppression",
+    startTime: "2019-12-16",
+    endTime: "2019-12-19"
+  },
+  {
+    task: "Aetheric boom prog",
+    type: "Suppression",
+    startTime: "2019-12-19",
+    endTime: "2019-12-23"
   }
 ];
 let w = 800;
@@ -96,9 +96,7 @@ let svg = d3
   .selectAll("#chart")
   //.selectAll("svg")
   .append("svg")
-  .attr("width", w)
-  .attr("height", h)
-  .attr("class", "svg");
+  .attr("viewBox", "0 0 800 400");
 
 let dateFormat = d3.timeParse("%Y-%m-%d");
 let timeScale = d3
@@ -113,7 +111,7 @@ let timeScale = d3
   ])
   .range([0, 800 - 150]);
 
-export default function drawGantt(tasks, pageWidth, pageHeight, categories) {
+export default function drawGantt() {
   let barHeight = 20;
   let gap = barHeight + 4;
   let topPadding = 75;
@@ -125,16 +123,16 @@ export default function drawGantt(tasks, pageWidth, pageHeight, categories) {
     .range(["#00B9FA", "#F95002"])
     .interpolate(d3.interpolateHcl);
 
-  makeGrid(sidePadding, topPadding, pageWidth, pageHeight);
+  makeGrid(sidePadding, topPadding, w, h);
   drawRects(
-    tasks,
+    taskArray,
     gap,
     topPadding,
     sidePadding,
     barHeight,
     colorScale,
-    pageWidth,
-    pageHeight
+    w,
+    h
   );
   vertLabels(gap, topPadding, sidePadding, barHeight, colorScale);
 }
@@ -224,7 +222,7 @@ function drawRects(
     .attr("font-size", 11)
     .attr("text-anchor", "middle")
     .attr("text-height", theBarHeight)
-    .attr("fill", "#fff");
+    .attr("fill", "#666");
 
   // rectText
   //   .on("mouseover", function(e) {
@@ -332,7 +330,7 @@ function makeGrid(theSidePad, theTopPad, w, h) {
     .axisBottom(timeScale)
     .ticks(d3.timeDay, 1)
     .tickSize(-h + theTopPad + 20, 0, 0)
-    .tickFormat(d3.timeFormat("%d %b"));
+    .tickFormat(d3.timeFormat("%d"));
 
   let grid = svg
     .append("g")

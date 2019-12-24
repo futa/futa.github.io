@@ -23,16 +23,14 @@ article {
 }
 
 #chart {
-  width: 800px;
-  height: 400px;
   overflow: visible;
+  max-width: 1000px;
   margin: auto;
 }
 
 .grid .tick {
-  stroke: lightgrey;
+  stroke: rgba(0, 0, 0, 0.1);
   opacity: 0.3;
-  shape-rendering: crispEdges;
 }
 .grid path {
   stroke-width: 0;
@@ -60,4 +58,50 @@ article {
   border-width: 10px;
   border-bottom-color: #fa283d;
   top: -20px;
+}
+
+dl {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 1000px;
+  margin: auto;
+  align-items: center;
+}
+dt {
+  width: 50%;
+  text-align: right;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+dd {
+  margin-left: auto;
+  text-align: left;
+  font-size: 1.5em;
+  width: 48%;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 4px;
+}
+
+.axisSteelBlue text {
+  fill: steelblue;
+}
+
+.axisRed text {
+  fill: red;
+}
+
+#bar {
+  max-width: 1000px;
+  margin: auto;
+}
+main {
+  padding-bottom: 0 !important;
+}
+
+section {
+  margin-bottom: 20px;
 }

@@ -97,19 +97,35 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="styles/index.css">
 <div>
-  <p>Cleared on 12/24/2019 8:07PM</p>
-  <section id="numbers">
-    <span>58 hours</span>
-    <span>506 pulls</span>
-    <span>22 nights</span>
+  <section id="section-clear-time">
+    <h1>Cleared on 12/23/2019 8:07PM PST 🎄</h1>
+    <img src="images/1.png" alt="the team" >
   </section>
-  <div id="calendar-wipe"></div>
-  <div id="gnatt">
-    <div id="chart"></div>  <!-- chart -->
-    <!-- <div id="tag"></div> tooltip on hover -->
-  </div>
+  <section id="section-members">
+    <div id="chart-members"></div>
+  </section>
+  <section id="section-numbers">
+    <dl>
+      <dt>58</dt>
+      <dd>Hours</dd>
+      <dt>506</dt>
+      <dd>Pulls</dd>
+      <dt>22</dt>
+      <dd>Days</dd>
+    </dl>
+  </section>
+  <section id="section-calendar">
+    <div id="calendar-wipe"></div>
+    <div id="bar"></div>
+  </section>
+  <section id="section-progress">
+    <div id="gnatt">
+      <div id="chart"></div>
+    </div>
+  </section>
 </div>
 <script src="//d3js.org/d3.v4.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
 <script src="//d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script type="module" src="scripts/app.js"></script>
 
@@ -124,10 +140,6 @@
   
     
     
-
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
-
-      </div>
   
 
     </main>
