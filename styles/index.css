@@ -1,0 +1,63 @@
+article {
+  text-align: center;
+}
+#calendar-wipe {
+  text-align: center;
+  margin: 20px;
+}
+.month {
+  margin-right: 8px;
+}
+.month-name {
+  font-size: 85%;
+  fill: #777;
+  font-family: Arial, Helvetica;
+}
+.day.hover {
+  stroke: #6d6e70;
+  stroke-width: 2;
+}
+.day.focus {
+  stroke: #ffff33;
+  stroke-width: 2;
+}
+
+#chart {
+  width: 800px;
+  height: 400px;
+  overflow: visible;
+  margin: auto;
+}
+
+.grid .tick {
+  stroke: lightgrey;
+  opacity: 0.3;
+  shape-rendering: crispEdges;
+}
+.grid path {
+  stroke-width: 0;
+}
+
+#tag {
+  color: white;
+  background: #fa283d;
+  width: 150px;
+  position: absolute;
+  display: none;
+  padding: 3px 6px;
+  margin-left: -80px;
+  font-size: 11px;
+}
+
+#tag:before {
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  left: 50%;
+  margin-left: -5px;
+  position: absolute;
+  width: 0;
+  border-width: 10px;
+  border-bottom-color: #fa283d;
+  top: -20px;
+}
