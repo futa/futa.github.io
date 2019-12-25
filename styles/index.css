@@ -106,13 +106,24 @@ section {
   margin-bottom: 20px;
 }
 
+#member-numbers {
+  flex-basis: 65%;
+}
+
 #members-list {
   list-style: none;
   display: inline-block;
+  flex-basis: 35%;
 }
 
 #members-list > li {
   margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+#members-list > li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .member-icon-name {
@@ -141,6 +152,8 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1000px;
+  margin: auto;
 }
 
 #section-video {
