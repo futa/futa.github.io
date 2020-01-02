@@ -106,6 +106,14 @@ section {
   margin-bottom: 20px;
 }
 
+#section-members {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
 #member-numbers {
   flex-basis: 65%;
 }
@@ -146,14 +154,6 @@ section {
 .member-icon {
   width: 24px;
   height: 24px;
-}
-
-#section-numbers {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1000px;
-  margin: auto;
 }
 
 #section-video {

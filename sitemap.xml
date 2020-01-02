@@ -3,23 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tierss.com/categories/</loc>
+    <loc>https://tierss.com/</loc>
+    <lastmod>2019-12-23T21:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://tierss.com/posts/</loc>
-  </url>
-  
-  <url>
-    <loc>https://tierss.com/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>https://tierss.com/</loc>
+    <lastmod>2019-12-23T21:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://tierss.com/posts/uwu/</loc>
+    <lastmod>2019-12-23T21:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tierss.com/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tierss.com/tags/</loc>
   </url>
   
 </urlset>
