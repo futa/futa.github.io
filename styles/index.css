@@ -118,7 +118,14 @@ section {
   flex-basis: 65%;
 }
 
+/* TODO: Combine these */
 #members-list {
+  list-style: none;
+  display: inline-block;
+  flex-basis: 35%;
+}
+
+.members-list {
   list-style: none;
   display: inline-block;
   flex-basis: 35%;
@@ -157,7 +164,7 @@ section {
 }
 
 #section-video {
-  max-height: 378px;
+  /* max-height: 378px; */
   max-width: 620px;
   margin: auto;
 }
@@ -168,6 +175,7 @@ section {
   padding-top: 35px;
   height: 0;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
 #section-video-cont iframe {

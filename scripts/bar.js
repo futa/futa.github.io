@@ -49,7 +49,16 @@ var svg = d3
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
-export default function drawBar(error, data) {
+export default function drawBar(type) {
+  if (type === "tea") {
+    d3.csv("../../data/tea-data.csv", _drawBar);
+  } else {
+    d3.csv("../../data/data.csv", _drawBar);
+  }
+}
+
+function _drawBar(error, data) {
+  console.log("data: ", data);
   if (error) throw error;
 
   // format the data
