@@ -61,9 +61,9 @@ if (isTEA) {
     });
     m.addEventListener("mouseleave", function(evt) {
       let idx = parseInt(evt.target.dataset.index, 10);
-      teaHours.innerHTML = teaProg[0][0];
-      teaPulls.innerHTML = teaProg[0][1];
-      teaDays.innerHTML = teaProg[0][2];
+      teaHours.innerHTML = teaProg[1][0];
+      teaPulls.innerHTML = teaProg[1][1];
+      teaDays.innerHTML = teaProg[1][2];
     });
   });
 } else {

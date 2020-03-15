@@ -118,26 +118,19 @@ section {
   flex-basis: 65%;
 }
 
-/* TODO: Combine these */
-#members-list {
-  list-style: none;
-  display: inline-block;
-  flex-basis: 35%;
-}
-
 .members-list {
   list-style: none;
   display: inline-block;
   flex-basis: 35%;
 }
 
-#members-list > li {
+.members-list > li {
   margin-bottom: 10px;
   border-radius: 4px;
   padding: 8px;
 }
 
-#members-list > li:hover {
+.members-list > li:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
