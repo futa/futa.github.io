@@ -16,7 +16,7 @@ const isTEA = document.querySelector("#TEA");
 if (isTEA) {
   drawBar("tea");
 } else {
-  drawBar("tea");
+  drawBar();
 }
 
 // Draw progression Gantt chart
