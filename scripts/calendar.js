@@ -1,13 +1,13 @@
 export default function drawCalendar(dateData, type) {
-  let weeksInMonth = function(month) {
+  let weeksInMonth = function (month) {
     let m = d3.timeMonth.floor(month);
     return d3.timeWeeks(d3.timeWeek.floor(m), d3.timeMonth.offset(m, 1)).length;
   };
 
-  let minDate = d3.min(dateData, d => {
+  let minDate = d3.min(dateData, (d) => {
     return new Date(d.day);
   });
-  let maxDate = d3.max(dateData, d => {
+  let maxDate = d3.max(dateData, (d) => {
     return new Date(d.day);
   });
 
@@ -29,7 +29,7 @@ export default function drawCalendar(dateData, type) {
     .append("svg")
     .attr("class", "month")
     .attr("height", cellSize * 7 + cellMargin * 8 + 20) // the 20 is for the month labels
-    .attr("width", function(d) {
+    .attr("width", function (d) {
       let columns = weeksInMonth(d);
       return cellSize * columns + cellMargin * (columns + 1);
     })
@@ -39,18 +39,18 @@ export default function drawCalendar(dateData, type) {
     .append("text")
     .attr("class", "month-name")
     .attr("y", cellSize * 7 + cellMargin * 8 + 15)
-    .attr("x", function(d) {
+    .attr("x", function (d) {
       let columns = weeksInMonth(d);
       return (cellSize * columns + cellMargin * (columns + 1)) / 2;
     })
     .attr("text-anchor", "middle")
-    .text(function(d) {
+    .text(function (d) {
       return monthName(d);
     });
 
   let rect = svg
     .selectAll("rect.day")
-    .data(function(d, i) {
+    .data(function (d, i) {
       return d3.timeDays(d, new Date(d.getFullYear(), d.getMonth() + 1, 1));
     })
     .enter()
@@ -61,10 +61,10 @@ export default function drawCalendar(dateData, type) {
     .attr("rx", 3)
     .attr("ry", 3) // rounded corners
     .attr("fill", "#eaeaea") // default light grey fill
-    .attr("y", function(d) {
+    .attr("y", function (d) {
       return day(d) * cellSize + day(d) * cellMargin + cellMargin;
     })
-    .attr("x", function(d) {
+    .attr("x", function (d) {
       return (
         (week(d) - week(new Date(d.getFullYear(), d.getMonth(), 1))) *
           cellSize +
@@ -73,25 +73,25 @@ export default function drawCalendar(dateData, type) {
         cellMargin
       );
     })
-    .on("mouseover", function(d) {
+    .on("mouseover", function (d) {
       d3.select(this).classed("hover", true);
     })
-    .on("mouseout", function(d) {
+    .on("mouseout", function (d) {
       d3.select(this).classed("hover", false);
     })
     .datum(format);
 
-  rect.append("title").text(function(d) {
+  rect.append("title").text(function (d) {
     return titleFormat(new Date(d));
   });
 
   let lookup = d3
     .nest()
-    .key(function(d) {
+    .key(function (d) {
       return d.day;
     })
-    .rollup(function(leaves) {
-      return d3.sum(leaves, function(d) {
+    .rollup(function (leaves) {
+      return d3.sum(leaves, function (d) {
         return parseInt(d.count);
       });
     })
@@ -100,23 +100,23 @@ export default function drawCalendar(dateData, type) {
   let scale = d3
     .scaleLinear()
     .domain(
-      d3.extent(dateData, function(d) {
+      d3.extent(dateData, function (d) {
         return parseInt(d.count);
       })
     )
     .range([0.1, 1]); // the interpolate used for color expects a number in the range [0,1] but i don't want the lightest part of the color scheme
 
   rect
-    .filter(function(d) {
+    .filter(function (d) {
       return d in lookup;
     })
-    .style("fill", d => {
-      return type === "wipe" || type === "tea"
+    .style("fill", (d) => {
+      return type === "wipe" || type === "tea" || type === "ucob"
         ? d3.interpolateReds(scale(lookup[d]))
         : d3.interpolateBlues(scale(lookup[d]));
     })
     .select("title")
-    .text(function(d) {
+    .text(function (d) {
       return titleFormat(new Date(d)) + ":  " + lookup[d];
     });
 }

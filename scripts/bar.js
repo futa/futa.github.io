@@ -15,10 +15,10 @@ var y2 = d3.scaleLinear().range([height, 0]);
 // define the 1st line
 var valueline = d3
   .line()
-  .x(function(d) {
+  .x(function (d) {
     return x(d.date);
   })
-  .y(function(d) {
+  .y(function (d) {
     return y0(d.close);
   });
 
@@ -26,10 +26,10 @@ var valueline = d3
 var valueline2 = d3
   .line()
   .curve(d3.curveStep)
-  .x(function(d) {
+  .x(function (d) {
     return x(d.date);
   })
-  .y(function(d) {
+  .y(function (d) {
     return y1(d.open);
   });
 
@@ -41,9 +41,9 @@ var svg = d3
   .append("svg")
   .attr(
     "viewBox",
-    `0 0 ${width + margin.left + margin.right} ${height +
-      margin.top +
-      margin.bottom}`
+    `0 0 ${width + margin.left + margin.right} ${
+      height + margin.top + margin.bottom
+    }`
   )
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -52,6 +52,8 @@ var svg = d3
 export default function drawBar(type) {
   if (type === "tea") {
     d3.csv("../../data/tea-data.csv", _drawBar);
+  } else if (type === "ucob") {
+    d3.csv("../../data/ucob-data.csv", _drawBar);
   } else {
     d3.csv("../../data/data.csv", _drawBar);
   }
@@ -62,7 +64,7 @@ function _drawBar(error, data) {
   if (error) throw error;
 
   // format the data
-  data.forEach(function(d) {
+  data.forEach(function (d) {
     d.date = parseTime(d.date);
     d.close = +d.close;
     d.open = +d.open;
@@ -70,27 +72,27 @@ function _drawBar(error, data) {
 
   // Scale the range of the data
   x.domain(
-    d3.extent(data, function(d) {
+    d3.extent(data, function (d) {
       return d.date;
     })
   );
   y0.domain([
     0,
-    d3.max(data, function(d) {
+    d3.max(data, function (d) {
       return Math.max(d.close);
-    })
+    }),
   ]);
   y1.domain([
     0,
-    d3.max(data, function(d) {
+    d3.max(data, function (d) {
       return Math.max(d.open);
-    })
+    }),
   ]);
   y2.domain([
     0,
-    d3.max(data, function(d) {
+    d3.max(data, function (d) {
       return Math.max(Math.log(d.open));
-    })
+    }),
   ]);
 
   // Add the valueline path.
@@ -102,11 +104,7 @@ function _drawBar(error, data) {
     .attr("d", valueline);
 
   // Add the valueline2 path.
-  svg
-    .append("path")
-    .data([data])
-    .attr("class", "line")
-    .attr("d", valueline2);
+  svg.append("path").data([data]).attr("class", "line").attr("d", valueline2);
 
   // Add the X Axis
   svg
@@ -115,10 +113,7 @@ function _drawBar(error, data) {
     .call(d3.axisBottom(x));
 
   // Add the Y0 Axis
-  svg
-    .append("g")
-    .attr("class", "axisRed")
-    .call(d3.axisLeft(y0));
+  svg.append("g").attr("class", "axisRed").call(d3.axisLeft(y0));
 
   // Add the Y1 Axis
   svg
@@ -139,16 +134,10 @@ function _drawBar(error, data) {
 
   var legendOrdinal = d3
     .legendColor()
-    .shape(
-      "path",
-      d3
-        .symbol()
-        .type(d3.symbolSquare)
-        .size(150)()
-    )
+    .shape("path", d3.symbol().type(d3.symbolSquare).size(150)())
     .shapePadding(10)
     //use cellFilter to hide the "e" cell
-    .cellFilter(function(d) {
+    .cellFilter(function (d) {
       return d.label !== "e";
     })
     .scale(ordinal);
