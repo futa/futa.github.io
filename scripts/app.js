@@ -26,6 +26,11 @@ d3.csv("../../data/ucob-dates-wipe-smn.csv", function (response) {
   drawCalendar(response, "ucob-smn");
 });
 
+// DRU Draw pulls calendar
+d3.csv("../../data/dru-dates-wipe.csv", function (response) {
+  drawCalendar(response, "dru");
+});
+
 const isTEA = document.querySelector("#TEA");
 const isUCOB = document.querySelector("#UCOB");
 const isDRU = document.querySelector("#DRU");

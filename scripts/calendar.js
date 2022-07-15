@@ -111,7 +111,10 @@ export default function drawCalendar(dateData, type) {
       return d in lookup;
     })
     .style("fill", (d) => {
-      return type === "wipe" || type === "tea" || type === "ucob"
+      return type === "wipe" ||
+        type === "tea" ||
+        type === "ucob" ||
+        type === "dru"
         ? d3.interpolateReds(scale(lookup[d]))
         : d3.interpolateBlues(scale(lookup[d]));
     })
