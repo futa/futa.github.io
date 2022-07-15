@@ -67,7 +67,7 @@ const ucobProg = [
   [75.5, 672, 29], //WAR
   [75.5, 672, 29], //GNB
   [75.5, 672, 29], //WHM
-  [53, 381, 18], //SCH
+  [53, 381, 17], //SCH
   [75.5, 672, 29], //SAM
   [75.5, 672, 29], //MCH
   [44, 299, 15], //NIN
@@ -140,13 +140,13 @@ if (isTEA) {
       ucobDays.innerHTML = ucobProg[idx][2];
       toggleCalendars(idx);
     });
-    // m.addEventListener("mouseleave", function (evt) {
-    //   let idx = parseInt(evt.target.dataset.index, 10);
-    //   ucobHours.innerHTML = ucobProg[1][0];
-    //   ucobPulls.innerHTML = ucobProg[1][1];
-    //   ucobDays.innerHTML = ucobProg[1][2];
-    //   toggleCalendars(0);
-    // });
+    m.addEventListener("mouseleave", function (evt) {
+      let idx = parseInt(evt.target.dataset.index, 10);
+      ucobHours.innerHTML = ucobProg[1][0];
+      ucobPulls.innerHTML = ucobProg[1][1];
+      ucobDays.innerHTML = ucobProg[1][2];
+      toggleCalendars(0);
+    });
   });
 } else {
   // UWU
