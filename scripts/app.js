@@ -28,10 +28,13 @@ d3.csv("../../data/ucob-dates-wipe-smn.csv", function (response) {
 
 const isTEA = document.querySelector("#TEA");
 const isUCOB = document.querySelector("#UCOB");
+const isDRU = document.querySelector("#DRU");
 if (isTEA) {
   drawBar("tea");
 } else if (isUCOB) {
   drawBar("ucob");
+} else if (isDRU) {
+  drawBar("dru");
 } else {
   drawBar();
 }

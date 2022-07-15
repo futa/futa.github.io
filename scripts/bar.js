@@ -54,6 +54,8 @@ export default function drawBar(type) {
     d3.csv("../../data/tea-data.csv", _drawBar);
   } else if (type === "ucob") {
     d3.csv("../../data/ucob-data.csv", _drawBar);
+  } else if (type === "dru") {
+    d3.csv("../../data/dru-data.csv", _drawBar);
   } else {
     d3.csv("../../data/data.csv", _drawBar);
   }
