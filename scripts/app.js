@@ -31,15 +31,23 @@ d3.csv("../../data/dru-dates-wipe.csv", function (response) {
   drawCalendar(response, "dru");
 });
 
+// TOP Draw pulls calendar
+d3.csv("../../data/top-dates-wipe.csv", function (response) {
+  drawCalendar(response, "top");
+});
+
 const isTEA = document.querySelector("#TEA");
 const isUCOB = document.querySelector("#UCOB");
 const isDRU = document.querySelector("#DRU");
+const isTOP = document.querySelector("#TOP");
 if (isTEA) {
   drawBar("tea");
 } else if (isUCOB) {
   drawBar("ucob");
 } else if (isDRU) {
   drawBar("dru");
+} else if (isTOP) {
+  drawBar("top");
 } else {
   drawBar();
 }

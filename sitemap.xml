@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tierss.com/posts/dru/</loc>
-    <lastmod>2022-07-05T19:38:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tierss.com/</loc>
-    <lastmod>2022-07-05T19:38:00+00:00</lastmod>
+    <lastmod>2023-12-21T19:38:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://tierss.com/posts/</loc>
+    <lastmod>2023-12-21T19:38:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tierss.com/posts/top/</loc>
+    <lastmod>2023-12-21T19:38:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tierss.com/posts/dru/</loc>
     <lastmod>2022-07-05T19:38:00+00:00</lastmod>
   </url>
   
